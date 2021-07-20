@@ -6,6 +6,12 @@ Bash based tool for formatting gemlog posts with an index file. Produces date-co
 find . -type f -name "*.gmi" | xargs grep "tags:" | cut -d ':' -f 3-
 ```
 
+Or you could simply track all the gemlogs you've written with the script like below: 
+
+```
+ls -1 gemset | grep "gemlog_*" | sed 's/gemlog_//g'
+```
+
 When the script is run for the first time, it will create a gemset directory with a template index.gmi file- which currently simply lists the markdown-like syntax with some examples. The expectation is for the users to write and format their own index file. Running the gemsetter script after the index file has been formatted will produce date marked, tagged headers for both the individual gemlog .gmi and a link to them on the main index page. 
 
 There is a section in the code where the writer needs to write in a sed friendly url format, which would have to depend on whatever the hosting solution in use. This part will simply determine formatting of the link leading to gemlog posts at the bottom of the index file. 
